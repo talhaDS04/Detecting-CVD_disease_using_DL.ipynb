@@ -1,0 +1,266 @@
+# ❤️ Heart Disease Prediction using Deep Learning
+
+## 1. Introduction
+
+### Project Overview
+
+Heart disease remains one of the leading causes of mortality worldwide. Early detection using Artificial Intelligence can support healthcare professionals in making accurate and timely decisions.
+
+This project presents a complete Deep Learning pipeline for predicting heart disease by utilizing:
+
+* ECG signal analysis
+* Clinical patient data
+* CNN-based feature extraction
+* CNN-LSTM hybrid architecture
+* Multi-modal fusion learning
+* Explainable AI using SHAP
+
+---
+
+# 2. Import Required Libraries
+
+The notebook begins with importing all necessary libraries for:
+
+* Data manipulation using NumPy and Pandas
+* Data visualization using Matplotlib and Seaborn
+* Deep Learning model development using TensorFlow/Keras
+* ECG signal processing using WFDB
+* Model evaluation using Scikit-learn
+* Model explainability using SHAP
+
+---
+
+# 3. Dataset Collection
+
+## 3.1 MIT-BIH ECG Dataset
+
+The ECG dataset is collected using the WFDB package and contains:
+
+* Raw ECG waveforms
+* Annotation files
+* Heartbeat labels
+* R-peak information
+
+### Main Tasks
+
+* Download ECG records
+* Read signal files
+* Load annotations
+* Analyze heartbeat categories
+
+---
+
+## 3.2 Cleveland Heart Disease Dataset
+
+The clinical dataset contains important patient information such as:
+
+* Age
+* Gender
+* Chest pain type
+* Blood pressure
+* Cholesterol level
+* Maximum heart rate
+* Exercise-induced angina
+* Other cardiovascular indicators
+
+---
+
+# 4. Exploratory Data Analysis (EDA)
+
+The data exploration phase includes:
+
+* ECG waveform visualization
+* Heartbeat class distribution
+* Missing value analysis
+* Statistical summaries
+* Clinical feature exploration
+
+---
+
+# 5. ECG Signal Preprocessing
+
+The preprocessing pipeline consists of:
+
+1. Detecting R-peaks.
+2. Extracting individual heartbeat segments.
+3. Converting heartbeat labels into binary classes:
+
+   * Normal heartbeat (0)
+   * Abnormal heartbeat (1)
+4. Normalizing ECG signals.
+5. Reshaping the data for neural network input.
+6. Splitting data into training and testing sets.
+
+---
+
+# 6. CNN Model for ECG Classification
+
+A 1D Convolutional Neural Network (CNN) is developed to automatically extract important features from ECG signals.
+
+### Architecture
+
+```
+Input ECG Signal
+        ↓
+Conv1D Layer
+        ↓
+MaxPooling Layer
+        ↓
+Conv1D Layer
+        ↓
+MaxPooling Layer
+        ↓
+Flatten Layer
+        ↓
+Dense Layer
+        ↓
+Dropout
+        ↓
+Sigmoid Output
+```
+
+### Evaluation
+
+The CNN model is evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1-Score
+* Confusion Matrix
+* ROC-AUC Score
+
+---
+
+# 7. CNN-LSTM Hybrid Model
+
+The CNN-LSTM architecture combines spatial feature extraction and temporal sequence learning.
+
+### Workflow
+
+```
+ECG Signal
+      ↓
+CNN Feature Extraction
+      ↓
+LSTM Temporal Learning
+      ↓
+Dense Layers
+      ↓
+Binary Classification
+```
+
+### Benefits
+
+* Captures local ECG patterns.
+* Learns temporal relationships between heartbeats.
+* Improves classification capability.
+
+---
+
+# 8. Clinical Data Neural Network
+
+A separate Dense Neural Network is created to analyze clinical patient attributes.
+
+Processing steps:
+
+* Handle missing values.
+* Encode categorical features.
+* Normalize numerical features.
+* Train a fully connected neural network.
+
+---
+
+# 9. Multi-Modal Fusion Model
+
+To achieve improved prediction performance, ECG features and clinical features are combined.
+
+## Fusion Architecture
+
+```
+ECG Data
+    ↓
+CNN-LSTM Branch
+    ↓
+Extracted Features
+            +
+Clinical Data
+    ↓
+Dense Neural Network
+    ↓
+Extracted Features
+            ↓
+     Feature Fusion
+            ↓
+      Dense Layers
+            ↓
+     Heart Disease Prediction
+```
+
+### Advantages
+
+* Combines physiological and clinical information.
+* Provides more robust predictions.
+* Simulates a real-world diagnostic approach.
+
+---
+
+# 10. Model Optimization
+
+Optimization techniques applied:
+
+* Early Stopping
+* Learning Rate Reduction
+* Dropout Regularization
+* Proper Train-Test Splitting
+
+---
+
+# 11. Explainable Artificial Intelligence (XAI)
+
+SHAP (SHapley Additive Explanations) is used to understand model decisions.
+
+Generated explanations include:
+
+* Feature importance ranking
+* SHAP summary plots
+* Individual prediction explanations
+
+---
+
+# 12. Model Comparison
+
+| Model              | Purpose                              |
+| ------------------ | ------------------------------------ |
+| CNN                | Extract ECG spatial features         |
+| CNN-LSTM           | Learn ECG temporal patterns          |
+| Clinical DNN       | Analyze patient clinical data        |
+| Multi-Modal Fusion | Combine ECG and clinical information |
+
+---
+
+# 13. Results and Conclusion
+
+The final model demonstrates the effectiveness of Deep Learning techniques for heart disease prediction.
+
+Key outcomes:
+
+* Successful ECG signal processing.
+* Accurate heartbeat classification.
+* Effective integration of clinical data.
+* Improved prediction through multi-modal learning.
+* Better model transparency using SHAP explanations.
+
+---
+
+# 14. Future Improvements
+
+Possible future enhancements include:
+
+* Training on larger ECG databases.
+* Applying Transformer-based architectures.
+* Hyperparameter optimization.
+* Real-time ECG monitoring applications.
+* Deployment using Flask, FastAPI, or cloud services.
+
+This cleaned notebook version is designed for professional presentation on GitHub, LinkedIn, research portfolios, and Data Science job applications.
